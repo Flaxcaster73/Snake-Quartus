@@ -1,0 +1,113 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'reloj_1mhz'
+Slack : -11.132
+TNS   : -129.802
+
+Type  : Slow 1200mV 85C Model Setup 'reloj_juego'
+Slack : -10.436
+TNS   : -3879.459
+
+Type  : Slow 1200mV 85C Model Setup 'reloj_50mhz'
+Slack : -6.427
+TNS   : -391.487
+
+Type  : Slow 1200mV 85C Model Hold 'reloj_50mhz'
+Slack : 0.432
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'reloj_juego'
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'reloj_1mhz'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'reloj_50mhz'
+Slack : -3.000
+TNS   : -156.161
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'reloj_juego'
+Slack : -1.487
+TNS   : -605.209
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'reloj_1mhz'
+Slack : -1.487
+TNS   : -55.019
+
+Type  : Slow 1200mV 0C Model Setup 'reloj_1mhz'
+Slack : -10.713
+TNS   : -120.975
+
+Type  : Slow 1200mV 0C Model Setup 'reloj_juego'
+Slack : -9.839
+TNS   : -3664.392
+
+Type  : Slow 1200mV 0C Model Setup 'reloj_50mhz'
+Slack : -5.890
+TNS   : -350.847
+
+Type  : Slow 1200mV 0C Model Hold 'reloj_50mhz'
+Slack : 0.381
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'reloj_juego'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'reloj_1mhz'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'reloj_50mhz'
+Slack : -3.000
+TNS   : -156.161
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'reloj_juego'
+Slack : -1.487
+TNS   : -605.209
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'reloj_1mhz'
+Slack : -1.487
+TNS   : -55.019
+
+Type  : Fast 1200mV 0C Model Setup 'reloj_1mhz'
+Slack : -4.689
+TNS   : -43.765
+
+Type  : Fast 1200mV 0C Model Setup 'reloj_juego'
+Slack : -4.246
+TNS   : -1525.771
+
+Type  : Fast 1200mV 0C Model Setup 'reloj_50mhz'
+Slack : -2.354
+TNS   : -114.662
+
+Type  : Fast 1200mV 0C Model Hold 'reloj_50mhz'
+Slack : 0.178
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'reloj_1mhz'
+Slack : 0.184
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'reloj_juego'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'reloj_50mhz'
+Slack : -3.000
+TNS   : -113.262
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'reloj_juego'
+Slack : -1.000
+TNS   : -407.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'reloj_1mhz'
+Slack : -1.000
+TNS   : -37.000
+
+------------------------------------------------------------

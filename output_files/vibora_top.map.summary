@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Jun 23 11:36:55 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : vibora_top
+Top-level Entity Name : vibora_top
+Family : Cyclone IV E
+Total logic elements : 5,212
+    Total combinational functions : 4,828
+    Dedicated logic registers : 547
+Total registers : 547
+Total pins : 22
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

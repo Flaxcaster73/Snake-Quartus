@@ -1,0 +1,103 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity vibora_top is
+    Port ( 
+        reloj_50mhz   : in  STD_LOGIC;
+        
+        reinicio      : in  STD_LOGIC;
+        btn_arriba    : in  STD_LOGIC;
+        btn_abajo     : in  STD_LOGIC;
+        btn_izquierda : in  STD_LOGIC;
+        btn_derecha   : in  STD_LOGIC;
+        
+        max7219_din   : out STD_LOGIC;
+        max7219_cs    : out STD_LOGIC;
+        max7219_clk   : out STD_LOGIC;
+        
+        display_seg   : out STD_LOGIC_VECTOR (7 downto 0);
+        display_dig   : out STD_LOGIC_VECTOR (3 downto 0);
+        
+        pin_zumbador  : out STD_LOGIC
+    );
+end vibora_top;
+
+architecture Behavioral of vibora_top is
+
+    signal reloj_1mhz  : std_logic := '0';
+    signal reloj_juego : std_logic := '0';
+    
+    signal div_1mhz    : unsigned(5 downto 0) := (others => '0');
+    signal div_juego   : unsigned(23 downto 0) := (others => '0');
+    
+    signal datos_matriz    : std_logic_vector(63 downto 0);
+    signal reinicio_activo : std_logic;
+    signal datos_puntaje   : integer range 0 to 64;
+    signal datos_record    : integer range 0 to 64;
+    signal datos_fin_juego : std_logic;
+
+begin
+
+    reinicio_activo <= not reinicio;
+
+    process(reloj_50mhz)
+    begin
+        if rising_edge(reloj_50mhz) then
+            div_1mhz <= div_1mhz + 1;
+            if div_1mhz = 25 then
+                reloj_1mhz <= not reloj_1mhz;
+                div_1mhz <= (others => '0');
+            end if;
+            
+            div_juego <= div_juego + 1;
+            if div_juego = 6250000 then 
+                reloj_juego <= not reloj_juego;
+                div_juego <= (others => '0');
+            end if;
+        end if;
+    end process;
+
+    Inst_Juego: entity work.juego_vibora
+        port map(
+            reloj_juego      => reloj_juego,
+            reloj_rapido     => reloj_1mhz,
+            reinicio         => reinicio_activo,
+            btn_arriba       => btn_arriba,
+            btn_abajo        => btn_abajo,
+            btn_izquierda    => btn_izquierda,
+            btn_derecha      => btn_derecha,
+            salida_matriz    => datos_matriz,
+            salida_puntaje   => datos_puntaje,
+            salida_record    => datos_record,
+            salida_fin_juego => datos_fin_juego
+        );
+
+    Inst_SPI: entity work.spi_max7219
+        port map(
+            reloj_1mhz => reloj_1mhz,
+            reinicio   => reinicio_activo,
+            datos_in   => datos_matriz,
+            din        => max7219_din,
+            cs         => max7219_cs,
+            reloj_out  => max7219_clk
+        );
+
+    Inst_Puntaje: entity work.display_puntaje
+        port map(
+            reloj_50mhz => reloj_50mhz,
+            puntaje     => datos_puntaje,
+            record      => datos_record,
+            segmentos   => display_seg,
+            digitos     => display_dig
+        );
+
+    Inst_Audio: entity work.efectos_sonido
+        port map(
+            reloj_50mhz => reloj_50mhz,
+            puntaje     => datos_puntaje,
+            fin_juego   => datos_fin_juego,
+            zumbador    => pin_zumbador
+        );
+
+end Behavioral;
