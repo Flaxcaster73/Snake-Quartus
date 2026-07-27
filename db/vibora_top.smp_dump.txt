@@ -1,0 +1,9 @@
+
+State Machine - |vibora_top|spi_max7219:Inst_SPI|estado
+Name estado.GUARDAR estado.ENVIAR_BITS estado.CARGAR_FILA estado.ESPERA estado.INICIO_ENVIO estado.INICIO_ARRANQUE 
+estado.INICIO_ARRANQUE 0 0 0 0 0 0 
+estado.INICIO_ENVIO 0 0 0 0 1 1 
+estado.ESPERA 0 0 0 1 0 1 
+estado.CARGAR_FILA 0 0 1 0 0 1 
+estado.ENVIAR_BITS 0 1 0 0 0 1 
+estado.GUARDAR 1 0 0 0 0 1 
